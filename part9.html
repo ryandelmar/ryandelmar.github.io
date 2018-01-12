@@ -91,8 +91,8 @@ function create() {
         var star = stars.create(i * 70, 0, 'star');
 
         //  Let gravity do its thing
+	star.body.bounce.y = -0.9;    
         star.body.gravity.y = 300;
-	star.body.bounce.y = -0.9;
 	stars.body.collideWorldBounds = true;
 
         //  This just gives each star a slightly random bounce value
