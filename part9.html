@@ -83,7 +83,6 @@ function create() {
 
     //  We will enable physics for any star that is created in this group
     stars.enableBody = true;
-    stars.collideWorldBounds = true;
 
     //  Here we'll create 12 of them evenly spaced apart
     for (var i = 0; i < 12; i++)
@@ -93,6 +92,7 @@ function create() {
 
         //  Let gravity do its thing
         star.body.gravity.y = 300;
+	star.body.collideWorldBounds = true;
 
         //  This just gives each star a slightly random bounce value
         star.body.bounce.y = 0.7 + Math.random() * 0.2;
