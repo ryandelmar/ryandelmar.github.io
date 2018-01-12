@@ -90,8 +90,7 @@ function create() {
         //  Create a star inside of the 'stars' group
         var star = stars.create(i * 70, 0, 'star');
 
-        //  Let gravity do its thing
-	star.body.bounce.y = -0.9;    
+        //  Let gravity do its thing  
         star.body.gravity.y = 300;
 	stars.body.collideWorldBounds = true;
 
