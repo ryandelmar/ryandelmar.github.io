@@ -94,7 +94,7 @@ function create() {
         var star = stars.create(i * 70, 0, 'star');
 
         //  Let gravity do its thing  
-        star.body.gravity.y = 0;
+        star.body.gravity.y = 100;
 	star.body.bounce.y = -0.9 
 	star.body.collideWorldBounds = true;
 
