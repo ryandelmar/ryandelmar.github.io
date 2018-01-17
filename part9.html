@@ -60,7 +60,7 @@ function create() {
     var ledge = platforms.create(400, 400, 'ground');
     ledge.body.immovable = true;
 
-    ledge = platforms.create(-150, 250, 'ground');
+    ledge = platforms.create(-150, 400, 'ground');
     ledge.body.immovable = true;
 	
     ledge = platforms.create(100, 400, 'ground');
@@ -94,7 +94,7 @@ function create() {
         var star = stars.create(i * 70, 0, 'star');
 
         //  Let gravity do its thing  
-        star.body.gravity.y = 300;
+        star.body.gravity.y = 0;
 	star.body.bounce.y = -0.9 
 	star.body.collideWorldBounds = true;
 
