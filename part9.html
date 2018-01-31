@@ -25,8 +25,7 @@ function preload() {
 
 }
 
-var player1;
-var player2;	
+var player;	
 var platforms;
 var cursors;
 
@@ -68,26 +67,18 @@ function create() {
     ledge.body.immovable = true;	
 
     // The player and its settings
-    player1 = game.add.sprite(32, game.world.height - 150, 'dude');
-    player2 = game.add.sprite(64, game.world.height - 150, 'dude');
-
+    player = game.add.sprite(32, game.world.height - 150, 'dude');
     //  We need to enable physics on the player
-    game.physics.arcade.enable(player1);
-    game.physics.arcade.enable(player2);
+    game.physics.arcade.enable(player);
 
     //  Player physics properties. Give the little guy a slight bounce.
-    player1.body.bounce.y = -0.9;
-    player1.body.gravity.y = 300;
-    player1.body.collideWorldBounds = true;
-    player2.body.bounce.y = -0.9;
-    player2.body.gravity.y = 300;
-    player2.body.collideWorldBounds = true;
+    player.body.bounce.y = -0.9;
+    player.body.gravity.y = 300;
+    player.body.collideWorldBounds = true;
 
     //  Our two animations, walking left and right.
-    player1.animations.add('left', [0, 1, 2, 3], 10, true);
-    player1.animations.add('right', [5, 6, 7, 8], 10, true);
-    player2.animations.add('left', [0, 1, 2, 3], 10, true);
-    player2.animations.add('right', [5, 6, 7, 8], 10, true);
+    player.animations.add('left', [0, 1, 2, 3], 10, true);
+    player.animations.add('right', [5, 6, 7, 8], 10, true);
 
     //  Finally some stars to collect
     stars = game.add.group();
@@ -129,76 +120,48 @@ function create() {
 function update() {
 
     //  Collide the player and the stars with the platforms
-    game.physics.arcade.collide(player1, platforms);
-    game.physics.arcade.collide(player2, platforms);
+    game.physics.arcade.collide(player, platforms);
     game.physics.arcade.collide(stars, platforms);
     game.physics.arcade.collide(player, stars);
     game.physics.arcade.collide(stars, stars);
 
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
-    game.physics.arcade.overlap(player1, player2, stars, collectStar, null, this);
+    game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
     //  Reset the players velocity (movement)
-    player1.body.velocity.x = 0;
-    player2.body.velocity.x = 0;
+    player.body.velocity.x = 0;
 
     if (cursors.left.isDown)
     {
         //  Move to the left
-        player1.body.velocity.x = -150;
+        player.body.velocity.x = -150;
 
-        player1.animations.play('left');
+        player.animations.play('left');
    
 	    
     }
     else if (cursors.right.isDown)
     {
         //  Move to the right
-        player1.body.velocity.x = 150;
+        player.body.velocity.x = 150;
 
-        player1.animations.play('right');
+        player.animations.play('right');
 	    
     }
     else
     {
         //  Stand still
-        player1.animations.stop();
+        player.animations.stop();
 
-        player1.frame = 4;
-    }
-    if (A)
-    {
-	player2.body.velocity.x = -150;
-
-	player2.animations.play('left');
-	
-    }
-    else if (D)
-    {
-	player2.body.velocity.x = 150;
-
-	player2.animations.play('right');
-	
-    }
-    else
-    {
-	player2.animations.stop();
-
-        player2.frame = 4;
-	
+        player.frame = 4;
     }
     
     //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && player1.body.touching.down)
+    if (cursors.up.isDown && player.body.touching.down)
     {
-        player1.body.velocity.y = -350;
+        player.body.velocity.y = -350;
     }
-    if (W && player2.body.touching.down)
-    {
-        player2.body.velocity.y = -350;
-    }
-
-}
+   
 
 function collectStar (player1, star) {
     
