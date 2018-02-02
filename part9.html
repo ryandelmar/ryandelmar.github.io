@@ -28,7 +28,6 @@ function preload() {
 var player;	
 var platforms;
 var cursors;
-var ground;
 var stars;
 var score = 0;
 var scoreText;
@@ -41,7 +40,7 @@ function create() {
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
 	
-    game.world.setBounds(0, 0, 400, -1000);
+    game.world.setBounds(0, 0, 400, 1000);
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
