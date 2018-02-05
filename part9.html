@@ -40,7 +40,7 @@ function create() {
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
 	
-    game.world.setBounds(0, 0, 400, -1000);
+    game.world.setBounds(0, 0, 400, 400);
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
@@ -67,7 +67,7 @@ function create() {
     ledge = platforms.create(100, 400, 'ground');
     ledge.body.immovable = true;
 	
-    ledge = platforms.create(100, 100, 'ground');
+    ledge = platforms.create(350, 100, 'ground');
     ledge.body.immovable = true;
 	
     ledge = platforms.create(100, 200, 'ground');
