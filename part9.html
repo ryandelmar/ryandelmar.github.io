@@ -65,11 +65,11 @@ function create() {
     ledge = platforms.create(0, 200, 'ledges');
     ledge.body.velocity.x = -200;
     ledge.body.collideWorldBounds = true;
-    ledge.body.bounce.x = -0.9;
+    ledge.body.bounce.x = 0.9;
     ledge.body.immovable = true;
 
-    //ledge = platforms.create(-150, 250, 'ledges');
-    //ledge.body.immovable = true;
+    ledge = platforms.create(-150, 250, 'ledges');
+    ledge.body.immovable = true;
 	
     //ledge = platforms.create(100, 400, 'ground');
     //ledge.body.immovable = true;
