@@ -66,6 +66,7 @@ function create() {
     ledge.body.velocity.x = -200;
     ledge.body.collideWorldBounds = true;
     ledge.body.bounce.x = 200;
+    ledge.body.immovable = true;
 
     ledge = platforms.create(-150, 250, 'ledges');
     ledge.body.immovable = true;
