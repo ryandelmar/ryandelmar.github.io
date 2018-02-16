@@ -61,8 +61,11 @@ function create() {
     //  Now let's create two ledges
     var ledge = platforms.create(400, 400, 'ledges');
     ledge.body.immovable = true;
+    
+    ledge = platforms.create(0, 400, 'ledges');
     ledge.body.velocity.x = -200;
     ledge.body.collideWorldBounds = true;
+    ledge.body.bounce.x = 200;
 
     ledge = platforms.create(-150, 250, 'ledges');
     ledge.body.immovable = true;
